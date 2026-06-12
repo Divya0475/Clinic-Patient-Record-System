@@ -1,0 +1,22 @@
+[
+  {"medicine":"Paracetamol","dosage":["250mg","500mg","650mg"]},
+  {"medicine":"Amoxicillin","dosage":["250mg","500mg"]},
+  {"medicine":"Cetirizine","dosage":["5mg","10mg"]},
+  {"medicine":"Azithromycin","dosage":["250mg","500mg"]},
+  {"medicine":"Ibuprofen","dosage":["200mg","400mg"]},
+  {"medicine":"Pantoprazole","dosage":["20mg","40mg"]},
+  {"medicine":"Omeprazole","dosage":["20mg","40mg"]},
+  {"medicine":"Metformin","dosage":["500mg","850mg"]},
+  {"medicine":"Amlodipine","dosage":["2.5mg","5mg"]},
+  {"medicine":"Losartan","dosage":["25mg","50mg"]},
+  {"medicine":"Dolo 650","dosage":["650mg"]},
+  {"medicine":"ORS","dosage":["1 Sachet"]},
+  {"medicine":"Vitamin C","dosage":["500mg","1000mg"]},
+  {"medicine":"Zinc Tablet","dosage":["20mg","50mg"]},
+  {"medicine":"Levocetirizine","dosage":["5mg"]},
+  {"medicine":"Diclofenac","dosage":["50mg","100mg"]},
+  {"medicine":"Ciprofloxacin","dosage":["250mg","500mg"]},
+  {"medicine":"Montelukast","dosage":["10mg"]},
+  {"medicine":"Salbutamol Syrup","dosage":["5ml","10ml"]},
+  {"medicine":"Multivitamin","dosage":["1 Tablet"]}
+]

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Patient Record System</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-section">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-notes-medical"></i>
+            </div>
+
+            <div>
+                <h2>MediCare</h2>
+                <p>Patient Record System</p>
+            </div>
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="/" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="/register" class="menu-item">
+                <i class="fa-solid fa-user-plus"></i>
+                Register Patient
+            </a>
+
+            <a href="/consultation" class="menu-item">
+                <i class="fa-solid fa-stethoscope"></i>
+                Record Visit
+            </a>
+
+            <a href="/records" class="menu-item">
+                <i class="fa-solid fa-folder-open"></i>
+                Patient Records
+            </a>
+
+            <a href="/analytics" class="menu-item">
+                <i class="fa-solid fa-chart-pie"></i>
+                Analytics
+            </a>
+
+        </nav>
+
+        <div class="doctor-card">
+
+            <div class="doctor-avatar">
+                DR
+            </div>
+
+            <div>
+
+    <h4>
+
+        {{ session.get('doctor','Doctor') }}
+
+    </h4>
+
+    <p>
+
+        {{ session.get('clinic','Clinic') }}
+
+    </p>
+
+</div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="page-title">
+                <h2>MediCare Patient Record System</h2>
+            </div>
+
+            <div class="topbar-right">
+
+            <div class="clinic-info">
+
+                <div class="clinic-name">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                    {{ session.get('clinic','Clinic') }}
+
+        </div>
+
+        <div class="doctor-name">
+
+            <i class="fa-solid fa-user-doctor"></i>
+
+            {{ session.get('doctor','Doctor') }}
+
+        </div>
+
+    </div>
+
+    <div class="date-box">
+
+        <i class="fa-regular fa-calendar"></i>
+
+        <span id="currentDate"></span>
+
+    </div>
+
+    <a href="/logout" class="logout-btn">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Logout
+
+    </a>
+
+</div>
+
+        </header>
+
+        <!-- PAGE CONTENT -->
+
+        <section class="content">
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

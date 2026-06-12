@@ -1,0 +1,213 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Patient Consultation</h1>
+
+    <p>
+        Record symptoms, diagnosis, prescriptions and follow-up details.
+    </p>
+
+</div>
+
+<div class="form-card">
+
+    <form method="POST">
+
+        <!-- Patient Selection -->
+
+        <div class="form-group">
+
+            <label>Select Patient</label>
+
+            <select
+                name="patient_phone"
+                required>
+
+                {% for patient in patients %}
+
+                <option
+                    value="{{ patient[0] }}"
+                    {% if patient[0] == selected_phone %}
+                    selected
+                    {% endif %}
+                >
+
+                    {{ patient[1] }}
+                    ({{ patient[0] }})
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+        <!-- Visit Dates -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>Visit Date</label>
+
+                <input
+                    type="date"
+                    name="visit_date"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Follow Up Date</label>
+
+                <input
+                    type="date"
+                    name="followup_date">
+
+            </div>
+
+        </div>
+
+        <!-- Symptoms -->
+
+        <div class="form-group">
+
+            <label>Symptoms</label>
+
+            <div class="symptom-grid">
+
+                {% for symptom in symptoms_list %}
+
+                <label class="checkbox-item">
+
+                    <input
+                        type="checkbox"
+                        name="symptoms"
+                        value="{{ symptom }}">
+
+                    {{ symptom }}
+
+                </label>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <!-- Additional Symptoms -->
+
+        <div class="form-group">
+
+            <label>Additional Symptoms</label>
+
+            <input
+                type="text"
+                name="additional_symptoms"
+                placeholder="Enter additional symptoms if any">
+
+        </div>
+
+        <!-- Diagnosis -->
+
+        <div class="form-group">
+
+            <label>Diagnosis</label>
+
+            <textarea
+                name="diagnosis"
+                rows="4"
+                placeholder="Enter diagnosis"
+                required></textarea>
+
+        </div>
+
+        <!-- Medicine & Dosage -->
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label>Medicine</label>
+
+                <select
+                    name="medicine"
+                    required>
+
+                    {% for med in medicines %}
+
+                    <option>
+
+                        {{ med.medicine }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Dosage</label>
+
+                <input
+                    type="text"
+                    name="dosage"
+                    placeholder="650mg"
+                    required>
+
+            </div>
+
+        </div>
+
+        <!-- Duration -->
+
+        <div class="form-group">
+
+            <label>Duration</label>
+
+            <input
+                type="text"
+                name="duration"
+                placeholder="5 Days"
+                required>
+
+        </div>
+
+        <!-- Notes -->
+
+        <div class="form-group">
+
+            <label>Doctor Notes</label>
+
+            <textarea
+                name="notes"
+                rows="4"
+                placeholder="Additional notes"></textarea>
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+            Save Consultation
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
+```

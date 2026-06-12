@@ -1,0 +1,131 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Clinic Analytics</h1>
+
+    <p>
+        Monitor clinic performance, patient statistics and consultation trends.
+    </p>
+
+</div>
+
+<!-- Analytics Cards -->
+
+<div class="dashboard-cards">
+
+    <div class="stat-card">
+
+        <h3>Total Patients</h3>
+
+        <h1>{{ total_patients }}</h1>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>Total Visits</h3>
+
+        <h1>{{ total_visits }}</h1>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>Visits Today</h3>
+
+        <h1>{{ visits_today }}</h1>
+
+    </div>
+
+</div>
+
+<!-- Analytics Grid -->
+
+<div class="dashboard-grid">
+
+    <!-- Clinic Summary -->
+
+    <div class="card">
+
+        <h2>
+            <i class="fa-solid fa-chart-column"></i>
+            Clinic Summary
+        </h2>
+
+        <br>
+
+        <div class="analytics-item">
+
+            <span>Total Registered Patients</span>
+
+            <strong>{{ total_patients }}</strong>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <span>Total Consultation Records</span>
+
+            <strong>{{ total_visits }}</strong>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <span>Today's Visits</span>
+
+            <strong>{{ visits_today }}</strong>
+
+        </div>
+
+        <div class="analytics-item">
+
+            <span>Most Common Symptom</span>
+
+            <strong>{{ most_common_symptom }}</strong>
+
+        </div>
+
+    </div>
+
+    <!-- Top Symptoms -->
+
+    <div class="card">
+
+        <h2>
+            <i class="fa-solid fa-heart-pulse"></i>
+            Top Symptoms
+        </h2>
+
+        <br>
+
+        {% if top_symptoms %}
+
+            {% for symptom,count in top_symptoms %}
+
+            <div class="symptom-item">
+
+                <span>{{ symptom }}</span>
+
+                <strong>{{ count }}</strong>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No symptom data available.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

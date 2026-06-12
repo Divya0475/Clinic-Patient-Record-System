@@ -1,0 +1,141 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Patient Records</h1>
+
+    <p>
+        Search and manage registered patients.
+    </p>
+
+</div>
+
+<!-- Search Box -->
+
+<div class="card">
+
+    <form
+        method="GET"
+        action="/records">
+
+        <div class="search-container">
+
+            <input
+                type="text"
+                name="search"
+                value="{{ search }}"
+                placeholder="Search by Name or Phone Number">
+
+            <button
+                type="submit"
+                class="btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<!-- Patients Table -->
+
+<div class="table-container">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for patient in patients %}
+
+            <tr>
+
+                <td>{{ patient[1] }}</td>
+
+                <td>{{ patient[0] }}</td>
+
+                <td>{{ patient[2] }}</td>
+
+                <td>{{ patient[3] }}</td>
+
+                <td>{{ patient[4] }}</td>
+
+                <td>
+
+                    <a
+                        href="/history/{{ patient[0] }}"
+                        class="btn">
+
+                        History
+
+                    </a>
+
+                    <a
+                        href="/consultation?phone={{ patient[0] }}"
+                        class="btn">
+
+                        Add Visit
+
+                    </a>
+
+                    <a
+                        href="/edit_patient/{{ patient[0] }}"
+                        class="btn">
+
+                        Edit
+
+                    </a>                    
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% if not patients %}
+
+<br>
+
+<div class="card">
+
+    <h3>No Patient Found</h3>
+
+    <p>
+        No patient matches your search.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
+```

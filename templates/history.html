@@ -1,0 +1,178 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Patient Medical History</h1>
+
+    <p>
+        Complete consultation history and treatment records.
+    </p>
+
+</div>
+
+<!-- Patient Information -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-user"></i>
+        Patient Information
+    </h2>
+
+    <br>
+
+    <div class="patient-info-grid">
+
+        <div>
+            <strong>Name</strong>
+            <p>{{ patient[1] }}</p>
+        </div>
+
+        <div>
+            <strong>Phone</strong>
+            <p>{{ patient[0] }}</p>
+        </div>
+
+        <div>
+            <strong>Age</strong>
+            <p>{{ patient[2] }}</p>
+        </div>
+
+        <div>
+            <strong>Gender</strong>
+            <p>{{ patient[3] }}</p>
+        </div>
+
+        <div>
+            <strong>Blood Group</strong>
+            <p>{{ patient[4] }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<!-- Visit History -->
+
+<h2 style="margin-bottom:20px;">
+    Consultation Timeline
+</h2>
+
+{% if visits %}
+
+    {% for visit in visits %}
+
+    <div class="visit-card">
+
+        <div class="visit-header">
+
+            <h3>
+                Visit Date:
+                {{ visit[2] }}
+            </h3>
+
+        </div>
+
+        <div class="visit-grid">
+
+            <div>
+
+                <h4>Symptoms</h4>
+
+                <p>
+                    {{ visit[3] }}
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Diagnosis</h4>
+
+                <p>
+                    {{ visit[4] }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="visit-grid">
+
+            <div>
+
+                <h4>Prescription</h4>
+
+                <p>
+                    {{ visit[5] }}
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Duration</h4>
+
+                <p>
+                    {{ visit[6] }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="visit-grid">
+
+            <div>
+
+                <h4>Doctor Notes</h4>
+
+                <p>
+                    {{ visit[7] }}
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Follow Up Date</h4>
+
+                <p>
+                    {{ visit[8] }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="card">
+
+    <h3>No Visit History Found</h3>
+
+    <p>
+        No consultations have been recorded for this patient.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
+```
